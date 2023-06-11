@@ -24,3 +24,7 @@ models:
     marts:
       materialized: table
       snowflake_warehouse: Ibm_Test_WH_Large
+models:
+  jaffle_shop:
+    staging:
+      +materialized: view
