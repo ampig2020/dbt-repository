@@ -15,7 +15,7 @@ customer_orders as (
     group by 1
 ),
 final as (
-    select
+  
         customers.customer_id,
         customers.first_name,
         customers.last_name,
