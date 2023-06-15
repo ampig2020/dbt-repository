@@ -1,0 +1,26 @@
+version: 2
+sources:
+  - name: apple_shop
+    description: source tpcds data
+    database: snowflake_sample_data
+    schema: tpcds_sf10scl
+    tables:
+      - name: customer
+        description: main customer tracking table
+        
+        columns:
+          - name: c_birth_country
+            description: this is the country location of every customers
+            tests: 
+              - unique
+              - not_null
+
+      # - name: lineitem
+      #   description: main lineitem table
+      #   columns:
+      #     - name: l_orderkey
+      #       description: Foreign Key to O_ORDERKEY
+      #       tests:
+      #         - relationships:
+      #             to: source('tpch', 'orders')
+      #             field: o_orderkey
