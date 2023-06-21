@@ -1,26 +1,77 @@
 version: 2
 sources:
-  - name: apple_shop
+  - name: tpcds_sf10tcl
     description: source tpcds data
     database: snowflake_sample_data
-    schema: tpcds_sf10scl
+    schema: tpcds_sf10tcl
     tables:
       - name: customer
         description: main customer tracking table
-        
         columns:
-          - name: c_birth_country
-            description: this is the country location of every customers
-            tests: 
-              - unique
-              - not_null
-
-      # - name: lineitem
-      #   description: main lineitem table
-      #   columns:
-      #     - name: l_orderkey
-      #       description: Foreign Key to O_ORDERKEY
-      #       tests:
-      #         - relationships:
-      #             to: source('tpch', 'orders')
-      #             field: o_orderkey
+          - name: C_CUSTOMER_ID
+            description: The ID of the customer.
+            
+          
+          - name: C_BIRTH_COUNTRY
+            description: The country of birth of the customer.
+            
+             
+          - name: C_BIRTH_DAY
+            description: The day of birth of the customer.
+            
+           
+          - name: C_BIRTH_MONTH
+            description: The month of birth of the customer.
+            
+            
+          - name: C_BIRTH_YEAR
+            description: The year of birth of the customer.
+            
+          
+          - name: C_CURRENT_ADDR_SK
+            description: The current address ID of the customer.
+          
+             
+          - name: C_CURRENT_CDEMO_SK
+            description: Current customer demographics ID.
+           
+              
+          - name: C_CURRENT_HDEMO_SK
+            description: Current household demographics ID.
+            
+              
+          - name: C_EMAIL_ADDRESS
+            description: The email address of the customer.
+            
+             
+          - name: C_FIRST_NAME
+            description: The first name of the customer.
+          
+             
+          - name: C_FIRST_SALES_DATE_SK
+            description: The first sales date ID.
+            
+              
+          - name: C_FIRST_SHIPTO_DATE_SK
+            description: The first ship-to date ID.
+            
+              
+          - name: C_LAST_NAME
+            description: The last name of the customer.
+           
+              
+          - name: C_LAST_REVIEW_DATE
+            description: The last review date of the customer.
+           
+              
+          - name: C_LOGIN
+            description: The login ID of the customer.
+            
+              
+          - name: C_PREFERRED_CUST_FLAG
+            description: Flag to denote if the customer is preferred or not.
+            
+             
+          - name: C_SALUTATION
+            description: The salutation for the customer.
+            

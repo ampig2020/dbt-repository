@@ -1,13 +1,8 @@
 with source as (
-
-    select * from {{ source('apple_shop', 'customer') }}
-
+    select * from {{ source('tpcds_sf10tcl', 'customer') }}
 ),
-
 renamed as (
-
     select
-
         C_CUSTOMER_ID as customer_id,
         C_BIRTH_COUNTRY as customer_country,
         C_BIRTH_DAY as customer_birthday,
@@ -25,9 +20,7 @@ renamed as (
         C_LOGIN as customer_login,
         C_PREFERRED_CUST_FLAG as customer_customerflag,
         C_SALUTATION as customer_salutation
-
     from source
-
 )
 
 select * from renamed
