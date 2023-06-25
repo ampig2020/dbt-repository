@@ -1,4 +1,4 @@
--- models/apple_shop/materialized_source.sql
+
 {{ config(materialized='table') }}
 
 with source as (
@@ -6,3 +6,8 @@ with source as (
 )
 
 select * from source
+
+
+-- Check the number of rows for validation
+-- select count(*) as row_count from source;
+
