@@ -1,5 +1,5 @@
 name: 'snowflake_workshop'
-version: '1.0.0'
+version: '1.5.1'
 config-version: 2
 
 profile: 'default'
@@ -20,11 +20,11 @@ models:
   snowflake_workshop:
     staging:
       materialized: view
-      snowflake_warehouse: pc_dbt_wh
+      snowflake_warehouse: transformed
     marts:
       materialized: table
-      snowflake_warehouse: Ibm_Test_WH_Large
-models:
-  jaffle_shop:
+      snowflake_warehouse: transformed
+
+  Apple_Shop:
     staging:
-      +materialized: view
+      materialized: view
