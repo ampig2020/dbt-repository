@@ -46,15 +46,52 @@ sources:
         description: customer address table
         columns:
           - name: CA_ADDRESS_ID
+            description: 
           - name: CA_ADDRESS_SK
+            description: 
           - name: CA_CITY
+            description: 
           - name: CA_COUNTRY
+            description: 
           - name: CA_COUNTY
+            description: 
           - name: CA_GMT_OFFSET
+            description: 
           - name: CA_LOCATION_TYPE
+            description: 
           - name: CA_STATE
+            description: 
           - name: CA_STREET_NAME
+            description: 
           - name: CA_STREET_NUMBER
+            description: 
           - name: CA_STREET_TYPE
+            description: 
           - name: CA_SUITE_NUMBER
+            description: 
           - name: CA_ZIP
+
+  - name: tpch_sf100
+    description: source tpch data
+    database: snowflake_sample_data
+    schema: tpch_sf100
+    tables:
+      - name: Customer
+        description: main customer tracking table
+        columns:
+          - name: C_ACCTBAL
+            description: 
+          - name: C_ADDRESS
+            description: 
+          - name: C_COMMENT
+            description: 
+          - name: C_CUSTKEY
+            description: 
+          - name: C_MKTSEGMENT
+            description: 
+          - name: C_NAME
+            description: 
+          - name: C_NATIONKEY
+            description: 
+          - name: C_PHONE
+            description:
