@@ -1,24 +1,48 @@
-{%- set payment_methods = ['bank_transfer', 'credit_card', 'coupon', 'gift_card'] -%}
+{%- set C_MKTSEGMENT = ['Machinery', 'Automobile', 'Furniture', 'Building', 'Household'] -%} --Setting Up Dictionary
 
-with payments as (
-   select * from {{ ref('stg_apple_shop_customers_tpch_sf100') }}
+with source_customer as (
+   select * from {{ source('tpch_sf100', 'customer') }}
 ),
 
 final as (
    select
-       order_id,
-       {% for payment_method in payment_methods -%}
-
-       sum(case when payment_method = '{{ payment_method }}' then amount else 0 end)
-            as {{ payment_method }}_amount
-
+       C_NATIONKEY,
+       {%- for segment in C_MKTSEGMENT -%}
+       max(case when C_MKTSEGMENT = '{{ segment }}' then C_COMMENT end)
+            as {{ segment }}_comment,
+       max(case when C_MKTSEGMENT = '{{ segment }}' then C_NAME end)
+            as {{ segment }}_customer
        {%- if not loop.last -%}
          ,
-       {% endif -%}
-
+       {%- endif -%}
        {%- endfor %}
-   from {{ ref('stg_payments') }}
-   group by 1
+   from source_customer
+   where C_ACCTBAL >= 0
+   group by C_NATIONKEY
 )
 
-select * from final
+select * from final;
+{%- set C_MKTSEGMENT = ['Machinery', 'Automobile', 'Furniture', 'Building', 'Household'] -%}
+
+with source_customer as (
+   select * from {{ source('tpch_sf100', 'customer') }}
+),
+
+final as (
+   select
+       C_NATIONKEY,
+       {%- for segment in C_MKTSEGMENT -%}
+       max(case when C_MKTSEGMENT = '{{ segment }}' then C_COMMENT end)
+            as {{ segment }}_comment,
+       max(case when C_MKTSEGMENT = '{{ segment }}' then C_NAME end)
+            as {{ segment }}_customer
+       {%- if not loop.last -%}
+         ,
+       {%- endif -%}
+       {%- endfor %}
+   from source_customer
+   where C_ACCTBAL >= 0
+   group by C_NATIONKEY
+)
+
+select * from final;
