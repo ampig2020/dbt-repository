@@ -8,6 +8,5 @@ with source as (
 select * from source
 
 
--- Check the number of rows for validation
--- select count(*) as row_count from source;
+
 

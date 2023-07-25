@@ -7,6 +7,9 @@ select * from source
 
 
 
+
+
+
 -- Removing Duplicates Transformation
 -- with source as (
 --     select * from {{ ref('stg_apple_shop_customers') }}
