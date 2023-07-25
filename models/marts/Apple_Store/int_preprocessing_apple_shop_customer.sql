@@ -1,4 +1,5 @@
-with source as (
+with 
+source as (
     select * from {{ ref('int_apple_shop_customer') }}
 ),
 
@@ -7,7 +8,7 @@ cleaned as (
         -- Format the birth year by removing commas
         replace(customer_birthyear, ',', '')::integer as C_BIRTH_YEAR_CLEANED,
         -- Convert country name to abbreviation using the macro
-        {{ country_to_abbreviation(customer_country) }} as customer_country_abbreviation,
+        {{ country_to_abbreviation('CUSTOMER_COUNTRY_ADDRESS') }} as customer_country_abbreviation,
         -- Other fields
         *
     from source
@@ -41,6 +42,7 @@ validated as (
 )
 
 select * from validated
+
 
 
 -- with source as (
