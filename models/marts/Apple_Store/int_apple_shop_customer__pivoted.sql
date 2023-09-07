@@ -19,9 +19,11 @@ final as (
    from source_customer
    where C_ACCTBAL >= 0
    group by C_NATIONKEY
+
 )
 
 select * from final;
+
 {%- set C_MKTSEGMENT = ['Machinery', 'Automobile', 'Furniture', 'Building', 'Household'] -%}
 
 with source_customer as (
