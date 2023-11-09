@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: fct_apple_shop_customer_final
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
