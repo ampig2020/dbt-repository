@@ -18,6 +18,10 @@ clean-targets:
 
 models:
   snowflake_workshop:
+    # Applies the following defaults to all models within the snowflake_workshop namespace
+    +tests:
+      - unique
+      - not_null
     staging:
       materialized: view
       snowflake_warehouse: transformed
@@ -25,6 +29,5 @@ models:
       materialized: table
       snowflake_warehouse: transformed
 
-  Apple_Shop:
-    staging:
-      materialized: view
+
+
