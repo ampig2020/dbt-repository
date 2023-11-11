@@ -18,13 +18,10 @@ clean-targets:
 
 models:
   snowflake_workshop:
-    staging:
-      materialized: view
-      snowflake_warehouse: transformed
-    marts:
-      materialized: table
-      snowflake_warehouse: transformed
+    +tests:
+      - unique
+      - not_null
 
-  Apple_Shop:
-    staging:
-      materialized: view
+
+
+
