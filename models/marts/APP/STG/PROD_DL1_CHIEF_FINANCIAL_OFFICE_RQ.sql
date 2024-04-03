@@ -14,9 +14,9 @@ WITH source_data AS (
 )
 
 SELECT
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_loaded_at,
+    _airbyte_raw_id as,
+    _airbyte_extracted_at as,
+    _airbyte_loaded_at as,
     COALESCE(
         TRIM(CAST(JSON_VALUE(__airbyte_data, '$.name') AS VARCHAR)),
         CAST(NULL AS VARCHAR)
