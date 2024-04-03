@@ -14,11 +14,11 @@ WITH source_data AS (
 )
 
 SELECT
-    _airbyte_raw_id as,
-    _airbyte_extracted_at as,
-    _airbyte_loaded_at as,
+    _airbyte_raw_id as NAME_ID,
+    _airbyte_extracted_at as EXTRACTED_AT_TIMESTAMP,
+    _airbyte_loaded_at as LOADED_FROM_TIMESTAMP,
     COALESCE(
-        TRIM(CAST(JSON_VALUE(__airbyte_data, '$.name') AS VARCHAR)),
+        TRIM(CAST(JSON_VALUE(_airbyte_data, '$.name') AS VARCHAR)),
         CAST(NULL AS VARCHAR)
     ) AS category_name
 FROM
